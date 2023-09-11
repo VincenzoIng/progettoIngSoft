@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="table">
+  <table>
+    <tr>
+      <th>ID ESAME</th>
+      <th>PROFESSORE</th>
+      <th>MATERIA</th>
+      <th>DATA</th>
+      <th>PRENOTA</th>
+    </tr>
+    <tr *ngFor="let e of esami">
+      <td>{{e.id}}</td>
+      <td>{{e.professore}}</td>
+      <td>{{e.materia}}</td>
+      <td>{{e.data}}</td>
+      <td class="tdb"><button class="btn" (click)="prenotaEsame(e.id)"><i class="fa fa-university" ></i></button></td>
+    </tr>
+  </table>
+  <button class="btn2" (click)="prenotazioniStudente()">VISUALIZZA PRENOTAZIONI</button>
+  <button class="btn3" (click)="risultatiStudente()">VISUALIZZA RISULTATI</button>
+</div>

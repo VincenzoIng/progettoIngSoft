@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="table">
+  <table>
+    <tr>
+      <th>ID PRENOTAZIONE</th>
+      <th>ID ESAME</th>
+      <th>MATERIA</th>
+      <th>CODICE FISCALE</th>
+      <th>MATRICOLA</th>
+      <th>ELIMINA PRENOTAZIONE</th>
+      <th>INIZIA ESAME</th>
+    </tr>
+    <tr *ngFor="let p of prenotazioni">
+      <td>{{p.id}}</td>
+      <td>{{p.idesame}}</td>
+      <td>{{p.materiaesame}}</td>
+      <td>{{p.cf}}</td>
+      <td>{{p.matricola}}</td>
+      <td class="tdb"><button class="btn" (click)="cancellaPrenotazione(p.id)"><i class="fa fa-trash" ></i></button></td>
+      <td class="tdb"><button class="btn" (click)="iniziaEsame(p.idesame)"><i class="fa fa-play" ></i></button></td>
+    </tr>
+  </table>
+
+</div>

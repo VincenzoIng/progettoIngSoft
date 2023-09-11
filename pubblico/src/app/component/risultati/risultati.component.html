@@ -1,0 +1,22 @@
+<div class="table">
+  <table>
+    <tr>
+      <th>ID ESAME</th>
+      <th>PROFESSORE</th>
+      <th>MATERIA</th>
+      <th>DATA</th>
+      <th>MATRICOLA</th>
+      <th>PUNTEGGIO</th>
+    </tr>
+
+    <tr *ngFor="let r of risultati">
+      <td>{{r.id}}</td>
+      <td>{{r.nomeprofessore}}</td>
+      <td>{{r.nomeesame}}</td>
+      <td>{{r.dataesame}}</td>
+      <td>{{r.matricola}}</td>
+      <td>{{r.punteggio}}</td>
+
+    </tr>
+  </table>
+</div>

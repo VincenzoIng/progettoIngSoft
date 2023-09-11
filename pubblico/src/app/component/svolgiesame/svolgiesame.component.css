@@ -1,0 +1,38 @@
+.container{
+  margin-top: 10%;
+  margin-left: 30%;
+}
+
+.risposte{
+  margin-top: 10%;
+  font-family: sans-serif;
+  font-size: medium;
+  height: 50px;
+}
+
+.domande{
+  font-size: medium;
+  font-family: sans-serif;
+}
+
+.btn{
+  font-family: sans-serif;
+  font-size: medium;
+  margin-top: 2%;
+  cursor: pointer;
+}
+
+.btn2{
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+.container2{
+  margin-top: 10%;
+  margin-left: 30%;
+}
+
+.rispfin{
+  font-family: sans-serif;
+  font-size: larger;
+}
