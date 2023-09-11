@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package com.progetto;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+
+
+
+service StudentiService {
+
+  rpc prenotazioneEsame(prenotazioneRequest) returns (prenotazioneResponse);
+  rpc cancellaPrenotazione(cancellaRequest) returns (cancellazioneRespose);
+  rpc getTuttePrenotazioni(tuttePrenotazioniRequest) returns (tuttePrenotazioniResponse);
+  rpc getDomandeEsame(domandeRequest) returns (domandeResponse);
+  rpc inviaRisposte(risposteRequest) returns (risposteResponse);
+  rpc getTuttiEsame(google.protobuf.Empty) returns (tuttiEsamiResponseStu);
+  rpc getRisultatiStudente(tuttePrenotazioniRequest) returns (risultatiStudenteResponse);
+
+}
+
+
+
+message EsameStu {
+  int32 id = 1;
+  string professore = 2;
+  string materia = 3;
+  string data = 4;
+}
+
+message tuttePrenotazioniRequest {
+  string cf = 1;
+}
+
+message prenotazione {
+  int32 id = 1;
+  int32 idesame = 2;
+  string materiaesame = 3;
+  string cf = 4;
+  string matricola = 5;
+}
+
+message tuttePrenotazioniResponse {
+  repeated prenotazione prenotazioni = 1;
+}
+
+
+message prenotazioneRequest {
+  int32 id = 1;
+  string cf = 2;
+  string matr = 3;
+}
+
+message cancellaRequest {
+  int32 id = 2;
+}
+
+message cancellazioneRespose {
+  string esito = 1;
+}
+
+message prenotazioneResponse {
+  string esito = 1;
+}
+
+message risposteRequest {
+  repeated string risposte = 1;
+  string cf = 2;
+  int32 id = 3;
+}
+
+message risposteResponse {
+  int32 punteggio = 1;
+  string mat = 2;
+}
+
+message tuttiEsamiResponseStu {
+  repeated EsameStu esami = 1;
+}
+
+message domandeRequest {
+  int32 id = 1;
+}
+
+message domandeResponse{
+  repeated string domande = 1;
+}
+
+message risultatiStudente{
+  int32 idesame = 1;
+  string nomeesame = 2;
+  string nomeprofessore = 3;
+  string dataesame = 4;
+  string matricola = 5;
+  int32 punteggio = 6;
+}
+
+message risultatiStudenteResponse{
+  repeated risultatiStudente risultatifin = 1;
+}

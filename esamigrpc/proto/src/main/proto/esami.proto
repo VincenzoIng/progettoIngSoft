@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package com.progetto;
+
+option java_multiple_files = true;
+import "google/protobuf/empty.proto";
+
+service EsameService {
+  rpc aggiungiEsame(EsameRequest) returns (Esame);
+  rpc dettagliEsame(idEsame) returns (Esame);
+  rpc modificaEsame(Esame) returns (Esame);
+  rpc getTuttiEsame(google.protobuf.Empty) returns (tuttiEsamiResponse);
+}
+
+message EsameRequest {
+  string professore = 1;
+  string materia = 2;
+  string data = 3;
+  repeated string domande = 4;
+  repeated string risposte = 5;
+}
+
+message Esame {
+  int32 id = 1;
+  string professore = 2;
+  string materia = 3;
+  string data = 4;
+}
+
+message idEsame {
+  int32 id = 1;
+}
+
+
+message inizioResponse {
+  bool esito = 1;
+}
+
+message fineResponse {
+  bool esito = 1;
+}
+
+message tuttiEsamiResponse {
+  repeated Esame esami = 1;
+}
+
+
