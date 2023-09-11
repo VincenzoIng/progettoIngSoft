@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="table">
+  <table>
+    <tr>
+      <th>ID ESAME</th>
+      <th>PROFESSORE</th>
+      <th>MATERIA</th>
+      <th>DATA</th>
+      <th>MODIFICA</th>
+    </tr>
+    <tr *ngFor="let e of esami">
+      <td>{{e.id}}</td>
+      <td>{{e.professore}}</td>
+      <td>{{e.materia}}</td>
+      <td>{{e.data}}</td>
+      <td class="tdb"><button class="btn" (click)="modificaEsame(e.id)"><i class="fa fa-edit" ></i></button></td>
+    </tr>
+  </table>
+  <button class="btn2" (click)="aggiungiEsame()">AGGIUNGI ESAME</button>
+</div>
+
