@@ -1,0 +1,34 @@
+<div class="container">
+  <p>NELL'OPERAZIONE DI MODIFICA NON MODIFICARE L'ID DELL'ESAME</p>
+  <form #esameForm="ngForm" (ngSubmit)="modificaEsame(esameForm)" class="form">
+    <input type="text"
+           [(ngModel)]="esame.id"
+           name="id"
+           id="id"
+           class="primo"/>
+    <label for="id" class="label">ID Esame</label>
+
+    <input type="text"
+           [(ngModel)]="esame.professore"
+           name="professore"
+           id="professore"
+           class="primo"/>
+    <label for="professore" class="label">Nome Professore</label>
+
+    <input type="text"
+           [(ngModel)]="esame.materia"
+           name="materia"
+           id="materia"
+           class="primo"/>
+    <label for="materia" class="label">Materia Esame</label>
+
+    <input type="text"
+           [(ngModel)]="esame.data"
+           name="data"
+           id="data"
+           class="primo"/>
+    <label for="data" class="label">Data Esame</label>
+
+    <button type="submit" class="bottone" > Modifica Dati Esame </button>
+  </form>
+</div>
