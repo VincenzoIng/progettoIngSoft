@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    username: root
+    password: root1234
+    url: jdbc:mysql://localhost:3306/databaseEsami?createDatabaseIfNotExist=true&useSSL=false
+  main:
+    web-application-type: none
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+grpc:
+  server:
+    port: 9000
+
+
+
+
+
