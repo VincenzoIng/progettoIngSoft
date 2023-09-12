@@ -10,6 +10,7 @@ import net.devh.boot.grpc.server.service.GrpcService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 @GrpcService
@@ -97,7 +98,7 @@ public class ServerStudentiService extends StudentiServiceGrpc.StudentiServiceIm
         for(int i = 0; i < rispEsame.size(); i++){
             if(rispStudente.get(i).equals(""))
                 punteggio -= 1;
-            else if(rispStudente.get(i).equals(rispEsame.get(i)))
+            else if(rispStudente.get(i).equalsIgnoreCase(rispEsame.get(i)))
                 punteggio += 3;
             else
                 punteggio += 0;
