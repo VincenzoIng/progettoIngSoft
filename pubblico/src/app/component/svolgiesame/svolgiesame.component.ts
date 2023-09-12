@@ -30,7 +30,7 @@ export class SvolgiesameComponent implements OnInit {
 
   tempoEsame: number = 0;
 
-  tempoTotale: number = 10;
+  tempoTotale: number = 3000;
 
   timerSubscription: Subscription | undefined;
 
