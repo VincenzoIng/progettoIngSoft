@@ -10,4 +10,5 @@ public class RichiestaAggiuntaEsame {
     private EsameSupp esameSupp;
     private List<String> risposte;
     private List<String> domande;
+    private List<String> risposteConsigliate;
 }

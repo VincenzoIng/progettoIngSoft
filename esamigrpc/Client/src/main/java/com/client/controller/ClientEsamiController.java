@@ -29,6 +29,7 @@ public class ClientEsamiController {
                 .setData(esameSupp.getData())
                 .addAllDomande(richiestaAggiuntaEsame.getDomande())
                 .addAllRisposte(richiestaAggiuntaEsame.getRisposte())
+                .addAllRisposteConsigliate(richiestaAggiuntaEsame.getRisposteConsigliate())
                 .build();
         return clientEsamiService.aggiungiEsame(esameRequest);
     }
