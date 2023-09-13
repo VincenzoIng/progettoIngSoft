@@ -14,6 +14,8 @@ export class SvolgiesameComponent implements OnInit {
 
   domande: string[] = [];
 
+  risposteSuggerite: string[] = [];
+
   risposta: string = "";
 
   risposte: string[] = [];
@@ -53,6 +55,7 @@ export class SvolgiesameComponent implements OnInit {
 
     });
 
+    this.studentiService.getRisposteConsigliate(this.id).subscribe((resp => { this.risposteSuggerite = resp; console.log(this.risposteSuggerite);}))
     this.studentiService.getDomandeEsame(this.id).subscribe((resp => { this.domande = resp; console.log(this.domande);}))
     this.iniziaEsame();
   }

@@ -38,4 +38,8 @@ export class StudentiService {
     return this.httpClient.get<any[]>("http://localhost:9090/getRisultatiStudente/"+cf);
   }
 
+  public getRisposteConsigliate(id: any){
+    return this.httpClient.get<string[]>("http://localhost:9090/getRisposteConsigliate/"+id);
+  }
+
 }
