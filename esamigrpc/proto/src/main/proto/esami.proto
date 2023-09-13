@@ -18,6 +18,7 @@ message EsameRequest {
   string data = 3;
   repeated string domande = 4;
   repeated string risposte = 5;
+  repeated string risposteConsigliate = 6;
 }
 
 message Esame {
