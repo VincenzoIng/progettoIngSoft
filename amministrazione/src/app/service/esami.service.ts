@@ -16,8 +16,8 @@ export class EsamiService {
   }
 
 
-  public aggiungiEsame(esameSupp:any, risposte: string[], domande: string[]){
-    return this.httpClient.post("http://localhost:8080/aggiungiEsame", {esameSupp, risposte, domande});
+  public aggiungiEsame(esameSupp:any, risposte: string[], domande: string[], risposteConsigliate: string[]){
+    return this.httpClient.post("http://localhost:8080/aggiungiEsame", {esameSupp, risposte, domande, risposteConsigliate});
   }
 
   public dettagliEsame(idEsame:any){

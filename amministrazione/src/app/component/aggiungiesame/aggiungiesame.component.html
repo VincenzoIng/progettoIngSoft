@@ -38,6 +38,15 @@
       </ul>
 
       <input type="text"
+             id="rispostaConsigliata"
+             name="rispostaConsigliata"
+             [(ngModel)]="rispostaConsigliata">
+      <button type="button" (click)="aggiungiRispostaConsigliata()">Aggiungi Risposte Consigliate</button>
+      <ul>
+        <li *ngFor="let r of risposteConsigliate">{{ r }}</li>
+      </ul>
+
+      <input type="text"
             id="risposta"
             name="risposta"
             [(ngModel)]="risposta">

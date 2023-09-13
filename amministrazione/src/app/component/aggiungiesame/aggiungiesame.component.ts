@@ -17,6 +17,9 @@ export class AggiungiesameComponent {
   risposta: string = "";
   risposte : string[] = [];
 
+  rispostaConsigliata: string = "";
+  risposteConsigliate: string[] = [];
+
   constructor(private router:Router,
               private esameService: EsamiService) {
   }
@@ -31,8 +34,14 @@ export class AggiungiesameComponent {
     this.domanda = "";
   }
 
+  aggiungiRispostaConsigliata(){
+    this.risposteConsigliate.push(this.rispostaConsigliata);
+    this.rispostaConsigliata = "";
+  }
+
   aggiungiEsame(esameForm: NgForm){
-    this.esameService.aggiungiEsame(esameForm.value, this.risposte, this.domande).subscribe(
+    console.log(this.risposteConsigliate);
+    this.esameService.aggiungiEsame(esameForm.value, this.risposte, this.domande, this.risposteConsigliate).subscribe(
       resp => { console.log(resp); esameForm.reset(); this.router.navigate(['']); }
     );
   }
