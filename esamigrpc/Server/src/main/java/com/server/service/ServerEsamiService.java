@@ -4,8 +4,10 @@ import com.google.protobuf.Empty;
 import com.progetto.*;
 import com.server.entity.Domanda;
 import com.server.entity.EsameDB;
+import com.server.entity.RisposteConsigliate;
 import com.server.repository.DomandeRepository;
 import com.server.repository.EsameDBRepository;
+import com.server.repository.RisposteConsigliateRepository;
 import io.grpc.stub.StreamObserver;
 import lombok.AllArgsConstructor;
 import net.devh.boot.grpc.server.service.GrpcService;
@@ -20,6 +22,7 @@ public class ServerEsamiService extends EsameServiceGrpc.EsameServiceImplBase {
 
     EsameDBRepository esameDBRepository;
     DomandeRepository domandeRepository;
+    RisposteConsigliateRepository risposteConsigliateRepository;
 
     @Override
     public void aggiungiEsame(EsameRequest request, StreamObserver<Esame> responseObserver) {
@@ -36,11 +39,18 @@ public class ServerEsamiService extends EsameServiceGrpc.EsameServiceImplBase {
                 .setData(request.getData())
                 .build();
         List<String> domandeRequest = request.getDomandeList();
+        List<String> risposteConsigliateRequest = request.getRisposteConsigliateList();
         for(String d : domandeRequest){
             Domanda domanda = new Domanda();
             domanda.setIdesame(esameDB.getId());
             domanda.setTesto(d);
             domandeRepository.save(domanda);
+        }
+        for(String r : risposteConsigliateRequest){
+            RisposteConsigliate risposte = new RisposteConsigliate();
+            risposte.setIdesame(esameDB.getId());
+            risposte.setRisposte(r);
+            risposteConsigliateRepository.save(risposte);
         }
         responseObserver.onNext(esame);
         responseObserver.onCompleted();

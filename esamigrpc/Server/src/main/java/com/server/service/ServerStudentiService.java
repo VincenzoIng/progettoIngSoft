@@ -22,6 +22,7 @@ public class ServerStudentiService extends StudentiServiceGrpc.StudentiServiceIm
     StudenteDBRepository studenteDBRepository;
     RisultatiDBRepository risultatiDBRepository;
     DomandeRepository domandeRepository;
+    RisposteConsigliateRepository risposteConsigliateRepository;
 
     @Override
     public void prenotazioneEsame(prenotazioneRequest request, StreamObserver<prenotazioneResponse> responseObserver) {
@@ -185,6 +186,17 @@ public class ServerStudentiService extends StudentiServiceGrpc.StudentiServiceIm
         responseObserver.onCompleted();
     }
 
-
-
+    @Override
+    public void getRisposteSuggerite(consigliateRequest request, StreamObserver<consigliateResponse> responseObserver) {
+        List<RisposteConsigliate> risposteDB = risposteConsigliateRepository.findAllByIdesame(request.getId());
+        List<String> risposte = new ArrayList<>();
+        for(RisposteConsigliate r : risposteDB){
+            risposte.add(r.getRisposte());
+        }
+        consigliateResponse resp = consigliateResponse.newBuilder()
+                .addAllSuggerite(risposte)
+                .build();
+        responseObserver.onNext(resp);
+        responseObserver.onCompleted();
+    }
 }
