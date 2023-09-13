@@ -9,6 +9,7 @@ import com.progetto.cancellaRequest;
 import com.progetto.risposteRequest;
 import com.progetto.tuttePrenotazioniRequest;
 import com.progetto.domandeRequest;
+import com.progetto.consigliateRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +74,15 @@ public class ClientStudentiController {
                 .setId(id)
                 .build();
         return clientStudentiService.getDomandeEsame(request);
+    }
+
+    @GetMapping("/getRisposteConsigliate/{id}")
+    @CrossOrigin("http://localhost:50750")
+    public List<String> getRisposteConsigliate(@PathVariable Integer id){
+         consigliateRequest request = consigliateRequest.newBuilder()
+                .setId(id)
+                .build();
+        return clientStudentiService.getRisposteConsigliate(request);
     }
 
     @GetMapping("/getRisultatiStudente/{cf}")

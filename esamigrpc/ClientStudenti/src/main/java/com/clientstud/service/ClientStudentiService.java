@@ -75,6 +75,11 @@ public class ClientStudentiService {
         return resp.getDomandeList();
     }
 
+    public List<String> getRisposteConsigliate(consigliateRequest request){
+        consigliateResponse resp = stub.getRisposteSuggerite(request);
+        return resp.getSuggeriteList();
+    }
+
     public ArrayList<RisultatiSupp> getRisultatiStudente(tuttePrenotazioniRequest request){
         risultatiStudenteResponse resp = stub.getRisultatiStudente(request);
         List<risultatiStudente> ris = resp.getRisultatifinList();
